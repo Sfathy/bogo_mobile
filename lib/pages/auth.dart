@@ -40,7 +40,7 @@ class _AuthPageState extends State<AuthPage> {
                 SizedBox(width: 25.0,),
                 Image.asset('assets/LoginPage/twitter.png',width: 50.0,height: 50.0,),
             ],),
-            ///sherif code
+            
             SizedBox(
               height: 60.0,
             ),
