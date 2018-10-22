@@ -35,6 +35,28 @@ flutter:
     - assets/LoginPage/facebook.png
     - assets/LoginPage/google-plus.png
     - assets/LoginPage/twitter.png
+    - assets/RegistrationPage/main-img.jpg
+    - assets/HomePage/Bell-Icons.png
+    - assets/HomePage/Search-Icons.png
+    - assets/HomePage/Home-Icons.png
+    - assets/HomePage/Coupons-Icons.png 
+    - assets/HomePage/Platinum-Icons.png
+    - assets/HomePage/More-Icons.png
+    - assets/HomePage/Location-Icons.png
+    - assets/HomePage/Resturants-Icons.png
+    - assets/HomePage/Specilas-Icons.png
+    - assets/HomePage/Pizza-Hut.png
+    - assets/HomePage/Chilis.png
+    - assets/HomePage/Starbucks.png
+    - assets/HomePage/previous-icons.png
+    - assets/HomePage/next-icons.png
+    - assets/HomePage/previous-icons-inner.png
+    - assets/HomePage/next-icons-inner.png
+    - assets/HomePage/big-image.png
+    - assets/HomePage/small-image.png
+    
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

@@ -8,7 +8,10 @@ import './pages/register.dart';
 import './pages/home.dart';
 import './pages/rest_password.dart';
 
+import 'package:flutter/rendering.dart';
+
 void main() {
+ // debugPaintSizeEnabled = true;
   runApp(MyApp(model: UsersModel()));
 }
 
