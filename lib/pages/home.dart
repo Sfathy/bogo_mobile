@@ -152,8 +152,8 @@ class HomePage extends StatelessWidget {
                 height: 100.0,
                 width: 80.0,
               ),
-              Text('Pizza Hut'),
-              Text('25 % Refund'),
+              Text('Pizza Hut',style: TextStyle(color: Colors.white),),
+              Text('25 % Refund',style: TextStyle(color: Colors.white),),
             ],
           ),
         ),
@@ -166,8 +166,8 @@ class HomePage extends StatelessWidget {
                 height: 100.0,
                 width: 80.0,
               ),
-              Text('Chili\'s'),
-              Text('15 % Refund'),
+              Text('Chili\'s',style: TextStyle(color: Colors.white),),
+              Text('15 % Refund',style: TextStyle(color: Colors.white),),
             ],
           ),
         ),
@@ -180,8 +180,8 @@ class HomePage extends StatelessWidget {
                 height: 100.0,
                 width: 80.0,
               ),
-              Text('Starbucks'),
-              Text('20 % Refund'),
+              Text('Starbucks',style: TextStyle(color: Colors.white),),
+              Text('20 % Refund',style: TextStyle(color: Colors.white),),
             ],
           ),
         ),
@@ -238,53 +238,67 @@ class HomePage extends StatelessWidget {
     'assets/HomePage/small-image.png',
     'assets/HomePage/big-image.png',
     'assets/HomePage/small-image.png',
+    'assets/HomePage/big-image.png',
+    'assets/HomePage/small-image.png',
   ];
   Widget _buildAdvPic() {
-    return Expanded(
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: _advList.length,
-       // reverse: true,
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-            child: Column(
-              children: <Widget>[
-                Image.asset(
-                  _advList[index],
-                  height: 250.0,
-                  width: 100.0,
-                ),
-              ],
-            ),
-          );
-        },
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: _advList.length,
+      // reverse: true,
+      itemBuilder: (BuildContext context, int index) {
+        return Card(
+          child: Column(
+            children: <Widget>[
+              Image.asset(
+                _advList[index],
+                alignment: Alignment.center,
+                height: 90.0,
+                width: 130.0,
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  List<String> _mainCatList = [
+    'Fasion',
+    'Health & Medical',
+    'Sweets',
+    'Fasion',
+    'Health & Medical',
+    'Sweets'
+  ];
+  Widget _buildCatItem(BuildContext context, int index) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5.0),
+      child: RaisedButton(
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        child: Text(
+          _mainCatList[index],
+          style: TextStyle(color: Colors.white),
+        ),
+        color: Color(0xFFAD045D),
+        onPressed: () {},
       ),
     );
   }
 
-  Widget _buildCatItem(BuildContext context, int index) {
-    return Card(
-        
-        child: RaisedButton(
-           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(75.0)),
-          child: Text(_categotyList[index].categoryName),
-          color: Color(0xFFAD045D),
-          onPressed: () {},
-        ),
-      
-    );
-  }
-
   Widget _buildCatButtons() {
-    return Expanded(
-        child: ListView.builder(
-          shrinkWrap: true,
-          //reverse: true,
-      scrollDirection: Axis.horizontal,
-      itemBuilder: _buildCatItem,
-      itemCount: _categotyList.length,
-    ));
+    return Container(
+      width: 350.0,
+      child: ListView.builder(
+        //shrinkWrap: true,
+        //reverse: true,
+        scrollDirection: Axis.horizontal,
+        // itemExtent: 100.0,
+        itemBuilder: _buildCatItem,
+        itemCount: _mainCatList.length,
+      ),
+    );
   }
 
   Widget _buildBody() {
@@ -294,11 +308,22 @@ class HomePage extends StatelessWidget {
       children: <Widget>[
         _buildUserName(),
         _buildLocation(),
-        _buildAdvPic(),
-        
-        
-         _buildCatButtons(),
-        
+        Container(
+          height: 98.0,
+          alignment: Alignment.topLeft,
+          child: _buildAdvPic(),
+        ),
+        Container(
+          height: 30.0,
+          alignment: Alignment.center,
+          child: Row(
+            children: <Widget>[
+              Image.asset('assets/HomePage/previous-icons.png'),
+              _buildCatButtons(),
+              Image.asset('assets/HomePage/next-icons.png'),
+            ],
+          ),
+        ),
         _buildCategotyCard(),
         Container(),
       ],
