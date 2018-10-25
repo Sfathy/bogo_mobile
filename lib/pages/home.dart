@@ -6,6 +6,7 @@ import '../models/categoty.dart';
 import '../scoped_models/users.dart';
 
 class HomePage extends StatelessWidget {
+  BuildContext formContext;
   final List<Category> _categotyList = [
     new Category(
         categoryName: 'Resturants & Cafes',
@@ -203,7 +204,7 @@ class HomePage extends StatelessWidget {
         textColor: Colors.white,
         child: Text('More'),
         onPressed: () {
-          //Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacementNamed(formContext, '/product');
         },
       ),
     );
@@ -370,6 +371,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    formContext = context;
     // TODO: implement build
     return ScopedModelDescendant<UsersModel>(
         builder: (BuildContext context, Widget child, UsersModel model) {

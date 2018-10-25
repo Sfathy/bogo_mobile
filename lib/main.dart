@@ -7,6 +7,7 @@ import './pages/auth.dart';
 import './pages/register.dart';
 import './pages/home.dart';
 import './pages/rest_password.dart';
+import './pages/product.dart';
 
 import 'package:flutter/rendering.dart';
 
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
           '/home':(BuildContext context)=> HomePage(), 
           '/reset':(BuildContext context)=> ResetPassword(),
           '/login':(BuildContext context)=> AuthPage(),
+          '/product':(BuildContext context)=> ProductPage(),
         },
         title: 'BOGO',
 
