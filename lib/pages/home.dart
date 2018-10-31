@@ -7,6 +7,9 @@ import '../scoped_models/users.dart';
 
 class HomePage extends StatelessWidget {
   BuildContext formContext;
+  double width;
+  double height;
+  double devicePixelRatio;
   final List<Category> _categotyList = [
     new Category(
         categoryName: 'Resturants & Cafes',
@@ -37,6 +40,7 @@ class HomePage extends StatelessWidget {
   ];
 
   Widget _buildAppBar() {
+    
     return AppBar(
       backgroundColor: Colors.black12,
       centerTitle: true,
@@ -129,7 +133,7 @@ class HomePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
         color: Color.fromARGB(127, 127, 127, 127),
       ),
-      height: 250.0,
+      height: height/3.0,
       margin: EdgeInsets.all(10.0),
       child: _buildCategoryContet(),
     );
@@ -145,16 +149,22 @@ class HomePage extends StatelessWidget {
           width: 30.0,
         ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 5.0),
+          margin: EdgeInsets.symmetric(horizontal: 2.0),
           child: Column(
             children: <Widget>[
               Image.asset(
                 'assets/HomePage/Pizza-Hut.png',
-                height: 100.0,
-                width: 80.0,
+                height: height/7,
+                width: width/7
               ),
-              Text('Pizza Hut',style: TextStyle(color: Colors.white),),
-              Text('25 % Refund',style: TextStyle(color: Colors.white),),
+              Text(
+                'Pizza Hut',
+                style: TextStyle(color: Colors.white),
+              ),
+              Text(
+                '25 % Refund',
+                style: TextStyle(color: Colors.white),
+              ),
             ],
           ),
         ),
@@ -164,11 +174,17 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               Image.asset(
                 'assets/HomePage/Chilis.png',
-                height: 100.0,
-                width: 80.0,
+                 height: height/7,
+                width: width/7
               ),
-              Text('Chili\'s',style: TextStyle(color: Colors.white),),
-              Text('15 % Refund',style: TextStyle(color: Colors.white),),
+              Text(
+                'Chili\'s',
+                style: TextStyle(color: Colors.white),
+              ),
+              Text(
+                '15 % Refund',
+                style: TextStyle(color: Colors.white),
+              ),
             ],
           ),
         ),
@@ -178,11 +194,17 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               Image.asset(
                 'assets/HomePage/Starbucks.png',
-                height: 100.0,
-                width: 80.0,
+                 height: height/7,
+                width: width/7
               ),
-              Text('Starbucks',style: TextStyle(color: Colors.white),),
-              Text('20 % Refund',style: TextStyle(color: Colors.white),),
+              Text(
+                'Starbucks',
+                style: TextStyle(color: Colors.white),
+              ),
+              Text(
+                '20 % Refund',
+                style: TextStyle(color: Colors.white),
+              ),
             ],
           ),
         ),
@@ -198,13 +220,13 @@ class HomePage extends StatelessWidget {
   Widget _buildMoreButton() {
     return Container(
       alignment: Alignment.bottomRight,
-      margin: EdgeInsets.all(15.0),
+      margin: EdgeInsets.all(5.0),
       child: RaisedButton(
         color: Color(0xFFAD045D),
         textColor: Colors.white,
         child: Text('More'),
         onPressed: () {
-          Navigator.pushReplacementNamed(formContext, '/product');
+          Navigator.pushNamed(formContext, '/product');
         },
       ),
     );
@@ -212,7 +234,7 @@ class HomePage extends StatelessWidget {
 
   Widget _buildCategoryContet() {
     return Container(
-      constraints: BoxConstraints(minWidth: 400.0, minHeight: 200.0),
+      constraints: BoxConstraints(minWidth: width, minHeight: height/5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -290,7 +312,7 @@ class HomePage extends StatelessWidget {
 
   Widget _buildCatButtons() {
     return Container(
-      width: 350.0,
+      width:    width-width/6,
       child: ListView.builder(
         //shrinkWrap: true,
         //reverse: true,
@@ -310,12 +332,12 @@ class HomePage extends StatelessWidget {
         _buildUserName(),
         _buildLocation(),
         Container(
-          height: 98.0,
+          height: height/6.9,
           alignment: Alignment.topLeft,
           child: _buildAdvPic(),
         ),
         Container(
-          height: 30.0,
+          height: height/20,
           alignment: Alignment.center,
           child: Row(
             children: <Widget>[
@@ -372,6 +394,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     formContext = context;
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
+    devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
+
     // TODO: implement build
     return ScopedModelDescendant<UsersModel>(
         builder: (BuildContext context, Widget child, UsersModel model) {

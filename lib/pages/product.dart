@@ -129,7 +129,7 @@ class ProductPage extends StatelessWidget {
     return Container(
       height: 80.0 / devicePixelRatio,
       child: Row(
-       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+       mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
             width: width / 7,
@@ -183,8 +183,8 @@ class ProductPage extends StatelessWidget {
          
           _buildUserName(),
           _buildLocation(),
-          //_buildFilterationButtons(),
-          Container(alignment: Alignment.topLeft,width: 50.0, child:FlatButton( child:Text('All AllAllAllAllAll',textAlign: TextAlign.left,),onPressed: (){print('object');}),),
+          _buildFilterationButtons(),
+          //Container(alignment: Alignment.topLeft,width: 50.0, child:FlatButton( child:Text('All AllAllAllAllAll',textAlign: TextAlign.left,),onPressed: (){print('object');}),),
         ],
       ),
     );

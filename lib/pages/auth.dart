@@ -14,9 +14,15 @@ class _AuthPageState extends State<AuthPage> {
   String _emailValue;
   String _passwordValue;
   bool _acceptTerms = false;
+  double width;
+  double height;
+  double devicePixelRatio;
 
   @override
   Widget build(BuildContext context) {
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
+    devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -29,20 +35,40 @@ class _AuthPageState extends State<AuthPage> {
         padding: EdgeInsets.all(50.0),
         child: ListView(
           children: <Widget>[
-            Image.asset('assets/LoginPage/Big-Logo.png',width: 150.0,height: 200.0,),
-            SizedBox(height:  30.0),
+            Image.asset(
+              'assets/LoginPage/Big-Logo.png',
+              width: width/3,
+              height: height/4,
+            ),
+            SizedBox(height: height/25),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset('assets/LoginPage/google-plus.png',width: 50.0,height: 50.0,),
-                SizedBox(width: 25.0,),
-                Image.asset('assets/LoginPage/facebook.png',width: 50.0,height: 50.0,),
-                SizedBox(width: 25.0,),
-                Image.asset('assets/LoginPage/twitter.png',width: 50.0,height: 50.0,),
-            ],),
-            
+                Image.asset(
+                  'assets/LoginPage/google-plus.png',
+                  width: width/9,
+                  height: height/10,
+                ),
+                SizedBox(
+                  width: width/20,
+                ),
+                Image.asset(
+                  'assets/LoginPage/facebook.png',
+                  width: width/9,
+                  height: height/10,
+                ),
+                SizedBox(
+                  width: width/20,
+                ),
+                Image.asset(
+                  'assets/LoginPage/twitter.png',
+                  width: width/9,
+                  height: height/10,
+                ),
+              ],
+            ),
             SizedBox(
-              height: 60.0,
+              height: height/25,
             ),
             TextField(
               decoration: InputDecoration(
@@ -93,7 +119,7 @@ class _AuthPageState extends State<AuthPage> {
               title: Text('Accept Terms'),
             ),*/
             SizedBox(
-              height: 50.0,
+              height: height/10,
             ),
             ScopedModelDescendant<UsersModel>(builder:
                 (BuildContext context, Widget child, UsersModel model) {
@@ -125,7 +151,7 @@ class _AuthPageState extends State<AuthPage> {
                                 ]);
                           });
                     }
-                   // Navigator.pushReplacementNamed(context, '/home');
+                    // Navigator.pushReplacementNamed(context, '/home');
                   });
             }),
             Column(
