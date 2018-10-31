@@ -8,6 +8,8 @@ import '../scoped_models/users.dart';
 class ProductPage extends StatelessWidget {
   double width;
   double height;
+  double devicePixelRatio;
+  
 
   Widget _buildAppBar() {
     return AppBar(
@@ -125,9 +127,48 @@ class ProductPage extends StatelessWidget {
 
   Widget _buildFilterationButtons() {
     return Container(
-      height: 30.0,
+      height: 80.0 / devicePixelRatio,
       child: Row(
-        children: <Widget>[],
+       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+            width: width / 7,
+            child: RaisedButton(
+              
+              color: Color(0xFFAD045D),
+              textColor: Colors.white,
+              child: Container(alignment: Alignment.centerLeft,child:Text('All',textAlign: TextAlign.start,style: TextStyle(fontSize: 9.0))),
+              onPressed: () {print('object');},
+            ),
+          ),
+          Container(
+            width: width / 3.5,
+            child: RaisedButton(
+              color: Color(0xFFAD045D),
+              textColor: Colors.white,
+              child: const  Text('Discounted Merchant',textAlign: TextAlign.start,style: TextStyle(fontSize: 10.0,inherit:false ),),
+              onPressed: () {print('object');},
+            ),
+          ),
+          Container(
+            width: width / 3.5,
+            child: RaisedButton(
+              color: Color(0xFFAD045D),
+              textColor: Colors.white,
+              child: Text('Refund Merchant',textAlign: TextAlign.start,style: TextStyle(fontSize: 9.0),),
+              onPressed: () {print('object');},
+            ),
+          ),
+          Container(
+            width: width / 5,
+            child: RaisedButton(
+              color: Color(0xFFAD045D),
+              textColor: Colors.white,
+              child: Text('My Favorite',textAlign: TextAlign.start,style: TextStyle(fontSize: 9.0),),
+              onPressed: () {print('object');},
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -137,10 +178,13 @@ class ProductPage extends StatelessWidget {
       width: width,
       height: height,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
+         
           _buildUserName(),
           _buildLocation(),
-          _buildFilterationButtons(),
+          //_buildFilterationButtons(),
+          Container(alignment: Alignment.topLeft,width: 50.0, child:FlatButton( child:Text('All AllAllAllAllAll',textAlign: TextAlign.left,),onPressed: (){print('object');}),),
         ],
       ),
     );
@@ -150,6 +194,7 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
+    devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
     // TODO: implement build
     return ScopedModelDescendant<UsersModel>(
       builder: (BuildContext context, Widget child, UsersModel model) {
