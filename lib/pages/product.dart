@@ -9,7 +9,6 @@ class ProductPage extends StatelessWidget {
   double width;
   double height;
   double devicePixelRatio;
-  
 
   Widget _buildAppBar() {
     return AppBar(
@@ -128,44 +127,69 @@ class ProductPage extends StatelessWidget {
   Widget _buildFilterationButtons() {
     return Container(
       height: 80.0 / devicePixelRatio,
+      margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: Row(
-       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
             width: width / 7,
             child: RaisedButton(
-              
               color: Color(0xFFAD045D),
               textColor: Colors.white,
-              child: Container(alignment: Alignment.centerLeft,child:Text('All',textAlign: TextAlign.start,style: TextStyle(fontSize: 9.0))),
-              onPressed: () {print('object');},
+              child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text('All',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(fontSize: 9.0))),
+              onPressed: () {
+                print('object');
+              },
             ),
           ),
           Container(
             width: width / 3.5,
             child: RaisedButton(
-              color: Color(0xFFAD045D),
-              textColor: Colors.white,
-              child: const  Text('Discounted Merchant',textAlign: TextAlign.start,style: TextStyle(fontSize: 10.0,inherit:false ),),
-              onPressed: () {print('object');},
+              color: Colors.white,//Color(0xFFAD045D),
+              textColor: Color(0xFFAD045D),//Colors.white,
+              child: const Text(
+                'Discounted Merchant',
+                textAlign: TextAlign.start,
+                
+                style: TextStyle(fontSize: 10.0, inherit: false,color: Color(0xFFAD045D)),
+              ),
+              onPressed: () {
+                print('object');
+              },
             ),
           ),
           Container(
             width: width / 3.5,
             child: RaisedButton(
-              color: Color(0xFFAD045D),
+              color: Colors.white,//Color(0xFFAD045D),
               textColor: Colors.white,
-              child: Text('Refund Merchant',textAlign: TextAlign.start,style: TextStyle(fontSize: 9.0),),
-              onPressed: () {print('object');},
+              child: Text(
+                'Refund Merchant',
+                textAlign: TextAlign.start,
+                style: TextStyle(fontSize: 9.0,color: Color(0xFFAD045D)),
+              ),
+              onPressed: () {
+                print('object');
+              },
             ),
           ),
           Container(
             width: width / 5,
             child: RaisedButton(
-              color: Color(0xFFAD045D),
+              color: Colors.white,//Color(0xFFAD045D),
               textColor: Colors.white,
-              child: Text('My Favorite',textAlign: TextAlign.start,style: TextStyle(fontSize: 9.0),),
-              onPressed: () {print('object');},
+              child: Text(
+                'My Favorite',
+                textAlign: TextAlign.start,
+                style: TextStyle(fontSize: 9.0,color: Color(0xFFAD045D)),
+              ),
+              onPressed: () {
+                print('object');
+              },
             ),
           ),
         ],
@@ -173,17 +197,148 @@ class ProductPage extends StatelessWidget {
     );
   }
 
+  Widget _buildSortButton(String text,bool isSelected) {
+    return RaisedButton(
+        color: !isSelected? Colors.white: Color(0xFFAD045D),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(75.0)),
+        textColor: !isSelected?Color(0xFFAD045D): Colors.white,
+        child: Text(text),
+        onPressed: () {});
+  }
+
+  Widget _buildSortingButtons() {
+    return Container(
+      margin: EdgeInsets.only(left: 5.0, right: 5.0),
+      //ListView(
+      //  scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+            width: width / 3,
+            child: _buildSortButton('Popularity',false),
+          ),
+          Container(
+            width: width / 4,
+            child: _buildSortButton('A-Z',false),
+          ),
+          Container(
+            width: width / 3,
+            child: _buildSortButton('Near Me - 5K',true),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBrands(){
+    return GridView.count(
+      crossAxisCount: 3,
+      mainAxisSpacing: 10.0,
+      crossAxisSpacing: 10.0,
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Pizza-Hut.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Chilis.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Starbucks.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Pizza-Hut.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Chilis.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Starbucks.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Pizza-Hut.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Chilis.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Starbucks.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/HomePage/Pizza-Hut.png'),
+            Text('LC Wakiki',style: TextStyle(color: Colors.white),),
+            Text('25% Refund',style: TextStyle(color: Colors.white),),
+          ],
+        ),
+      ],
+    );
+  }
+  Widget _buildCategory() {
+    return   Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Color.fromARGB(127, 127, 127, 127),
+      ),
+      height: height / 2.0,
+      margin: EdgeInsets.all(10.0),
+      child: _buildBrands(),
+    );
+  }
+  Widget _buildDivider(){
+    return Divider(color: Color(0xFFFDB813),height: 15.0,);
+  }
   Widget _buildBody() {
     return Container(
       width: width,
       height: height,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      child: ListView(
+        //mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-         
           _buildUserName(),
           _buildLocation(),
           _buildFilterationButtons(),
+          _buildDivider(),
+          _buildSortingButtons(),
+          //_buildSortButton('text'),
+          _buildCategory(),
           //Container(alignment: Alignment.topLeft,width: 50.0, child:FlatButton( child:Text('All AllAllAllAllAll',textAlign: TextAlign.left,),onPressed: (){print('object');}),),
         ],
       ),

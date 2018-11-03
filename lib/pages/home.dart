@@ -40,7 +40,6 @@ class HomePage extends StatelessWidget {
   ];
 
   Widget _buildAppBar() {
-    
     return AppBar(
       backgroundColor: Colors.black12,
       centerTitle: true,
@@ -133,86 +132,82 @@ class HomePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
         color: Color.fromARGB(127, 127, 127, 127),
       ),
-      height: height/3.0,
+      height: height / 3.0,
       margin: EdgeInsets.all(10.0),
       child: _buildCategoryContet(),
     );
   }
 
   Widget _buildBrandList() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
       children: <Widget>[
-        Image.asset(
-          'assets/HomePage/previous-icons-inner.png',
-          height: 30.0,
-          width: 30.0,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              'assets/HomePage/previous-icons-inner.png',
+              height: 30.0,
+              width: 30.0,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 2.0),
+              child: Column(
+                children: <Widget>[
+                  Image.asset('assets/HomePage/Pizza-Hut.png',
+                      height: height / 7, width: width / 7),
+                  Text(
+                    'Pizza Hut',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    '25 % Refund',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                children: <Widget>[
+                  Image.asset('assets/HomePage/Chilis.png',
+                      height: height / 7, width: width / 7),
+                  Text(
+                    'Chili\'s',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    '15 % Refund',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                children: <Widget>[
+                  Image.asset('assets/HomePage/Starbucks.png',
+                      height: height / 7, width: width / 7),
+                  Text(
+                    'Starbucks',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    '20 % Refund',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+            Image.asset(
+              'assets/HomePage/next-icons-inner.png',
+              height: 30.0,
+              width: 30.0,
+            ),
+          ],
         ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 2.0),
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                'assets/HomePage/Pizza-Hut.png',
-                height: height/7,
-                width: width/7
-              ),
-              Text(
-                'Pizza Hut',
-                style: TextStyle(color: Colors.white),
-              ),
-              Text(
-                '25 % Refund',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 10.0),
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                'assets/HomePage/Chilis.png',
-                 height: height/7,
-                width: width/7
-              ),
-              Text(
-                'Chili\'s',
-                style: TextStyle(color: Colors.white),
-              ),
-              Text(
-                '15 % Refund',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 10.0),
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                'assets/HomePage/Starbucks.png',
-                 height: height/7,
-                width: width/7
-              ),
-              Text(
-                'Starbucks',
-                style: TextStyle(color: Colors.white),
-              ),
-              Text(
-                '20 % Refund',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-        ),
-        Image.asset(
-          'assets/HomePage/next-icons-inner.png',
-          height: 30.0,
-          width: 30.0,
-        ),
+        _buildMoreButton(),
       ],
     );
   }
@@ -234,10 +229,10 @@ class HomePage extends StatelessWidget {
 
   Widget _buildCategoryContet() {
     return Container(
-      constraints: BoxConstraints(minWidth: width, minHeight: height/5),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      constraints: BoxConstraints(minWidth: width, minHeight: height / 4),
+      child: ListView(
+        //mainAxisAlignment: MainAxisAlignment.start,
+        //crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
@@ -251,7 +246,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
           _buildBrandList(),
-          _buildMoreButton(),
+          //_buildMoreButton(),
         ],
       ),
     );
@@ -269,15 +264,17 @@ class HomePage extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: _advList.length,
       // reverse: true,
+      
       itemBuilder: (BuildContext context, int index) {
+
         return Card(
           child: Column(
             children: <Widget>[
               Image.asset(
                 _advList[index],
                 alignment: Alignment.center,
-                height: 90.0,
-                width: 130.0,
+                height: height/5,
+                width: width/3,
               ),
             ],
           ),
@@ -312,7 +309,7 @@ class HomePage extends StatelessWidget {
 
   Widget _buildCatButtons() {
     return Container(
-      width:    width-width/6,
+      width: width - width / 6,
       child: ListView.builder(
         //shrinkWrap: true,
         //reverse: true,
@@ -326,18 +323,18 @@ class HomePage extends StatelessWidget {
 
   Widget _buildBody() {
     return //Column(children:<Widget>[ _buildCatButtons()]);
-        Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+        ListView(
+      // mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         _buildUserName(),
         _buildLocation(),
         Container(
-          height: height/6.9,
+          height: height / 6.9,
           alignment: Alignment.topLeft,
           child: _buildAdvPic(),
         ),
         Container(
-          height: height/20,
+          height: height / 20,
           alignment: Alignment.center,
           child: Row(
             children: <Widget>[
