@@ -120,8 +120,8 @@ class HomePage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
       ),
-      height: 150.0,
-      margin: EdgeInsets.all(30.0),
+      height: height/2,
+      margin: EdgeInsets.all(10.0),
       child: InkWell(),
     );
   }
@@ -132,7 +132,7 @@ class HomePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
         color: Color.fromARGB(127, 127, 127, 127),
       ),
-      height: height / 3.0,
+      height: height / 2.7,
       margin: EdgeInsets.all(10.0),
       child: _buildCategoryContet(),
     );
@@ -345,7 +345,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         _buildCategotyCard(),
-        Container(),
+       // Container(),
       ],
     );
   }

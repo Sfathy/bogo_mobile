@@ -100,7 +100,6 @@ class RegPageState extends State<RegPage> {
         border: new UnderlineInputBorder(
             borderSide: new BorderSide(color: Colors.yellowAccent)),
       ),
-      
       style: new TextStyle(color: Colors.white, height: 0.1, fontSize: 0.1),
       onChanged: (String value) {
         setState(() {
@@ -286,20 +285,17 @@ class RegPageState extends State<RegPage> {
 
   Widget _buildSignUpButton() {
     return SizedBox(
-     width: 400.0,
-     
-      child: 
-        RaisedButton(
-          color: Color(0xFFAD045D),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(75.0)),
-          textColor: Colors.white,
-          child: Text('Sign Up'),
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/home');
-          },
-        ),
-      
+      width: 400.0,
+      child: RaisedButton(
+        color: Color(0xFFAD045D),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(75.0)),
+        textColor: Colors.white,
+        child: Text('Sign Up'),
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, '/home');
+        },
+      ),
     );
   }
 
