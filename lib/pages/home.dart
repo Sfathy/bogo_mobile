@@ -119,7 +119,7 @@ class HomePage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
-      ),
+      ), 
       height: height/2,
       margin: EdgeInsets.all(10.0),
       child: InkWell(),
